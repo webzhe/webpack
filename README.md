@@ -16,4 +16,6 @@ git diff	//工作区和暂存区 之间的差异对比
 
 git diff --cached(--staged) //暂存区和版本区 之间的差异对比
 
+git diff master		//工作区和版本区 之前的差异对比	(master为分支名)
+
 git reset HEAD file		//撤回工作区
