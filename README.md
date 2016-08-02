@@ -25,7 +25,7 @@ git diff master		//工作区和版本区 之前的差异对比	(master为分支�
 ----------------------------Git命令 撤销操作--------------------------
 git reset HEAD <file.name> 		//暂存区 撤销到 工作区
 
-git reset --hard HEAD^ 			//回退版本
+git reset --hard HEAD^ 			//清空现在的工作区，暂存区 回退上一个版本 （谨慎操作）
 
 git checkout -- <file.name> 	//如果暂存区是空：工作区 撤销到 版本区 
 								//如果暂存区不为空：工作区 撤销到 暂存区	
