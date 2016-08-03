@@ -80,3 +80,14 @@ git reflog	//查看命令历史(操作信息)
 git remote	//查看仓库名称
 git push origin master		git push <仓库名称> <分支>
 ```
+
+### 更新代码
+```
+git fetch	//拉取分支不合并
+git pull	//拉取分支并合并
+```
+### 解决冲突
+```
+git diff master origin/master
+git merge origin/master
+```
