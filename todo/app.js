@@ -1,12 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-class App extends React.Component{
-	render(){
-		return (
-			<h1>Hello World1111111</h1>
-		)
+let app = {
+	dataArr:[],
+	addItem:function(value){
+		app.dataArr.push({
+			id:Date.now(),
+			content:value,
+			compile:false
+		});
+		app.render(app.dataArr);
 	}
 }
-
-export default App;
+console.log(app);
+export default app;
