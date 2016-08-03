@@ -30,7 +30,7 @@
     "start_todo": "webpack --config webpack.todo.config.js",
     "build": "webpack-dev-server --port 3000 --hot --inline --content-base ./build",
     "build_es6": "webpack-dev-server --port 4000 --hot --inline --content-base ./es6_build --config webpack.es6.config.js",
-    "build_react": "webpack-dev-server --port 4000 --hot --inline --content-base ./es6_build --config webpack.react.config.js",
-    "build_todo": "webpack-dev-server --port 4000 --hot --inline --content-base ./es6_build --config webpack.todo.config.js"
+    "build_react": "webpack-dev-server --port 4000 --hot --inline --content-base ./react_build --config webpack.react.config.js",
+    "build_todo": "webpack-dev-server --port 4000 --hot --inline --content-base ./todo_build --config webpack.todo.config.js"
   }
 }
