@@ -11,10 +11,9 @@ class Main extends React.Component{
 	render(){
 		var dataArr = this.props.dataArr;
 		var content,footer;
-		console.log(dataArr);
 		if( dataArr.length !== 0 ){
 			content =	<section className="main">
-			                <input className="toggle-all" type="checkbox" defaultChecked="" />
+			                <input className="toggle-all" type="checkbox" checked={this.props.compile} onChange={this.toggleAll} />
 			                <ul className="todo-list">
 				                {
 				                    dataArr.map(function(item,index){
@@ -29,7 +28,7 @@ class Main extends React.Component{
 			            	<span>条未选中</span>
 			            </span>
 		            </footer>
-		}
+		};
 		return (
 			<div>
 				<header className="header">
@@ -45,14 +44,18 @@ class Main extends React.Component{
 				{footer}
 			</div>
 		)
-	}
+	};
 
 	downHandle(ev){
 		if( ev.keyCode === 13){
 			app.addItem(ev.target.value);
 			ev.target.value = "";
 		}
-	}
+	};
+
+	toggleAll(ev){
+		app.toggleAll(ev.target.checked);
+	};
 }
 
 

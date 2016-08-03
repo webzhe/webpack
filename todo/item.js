@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import {classNames} from './util.js'
 export default class Item extends React.Component{
 	render(){
-		return <li className="completed">
+		return <li className={classNames({
+			completed:this.props.compile
+		})}>
 	                <div className="view">
 	                    <input className="toggle" type="checkbox" defaultChecked="" />
 	                    <label>{this.props.content}</label>
