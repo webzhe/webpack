@@ -22,6 +22,7 @@ let app = {
 			return item.id !== id;
 		});
 		app.dataArr = newArr;
+
 		app.info();
 		app.render(app.dataArr);
 	},
@@ -32,9 +33,24 @@ let app = {
 
 		app.info();
 		app.render(app.dataArr);
+	},
+	toogle:function(id){
+		app.dataArr.forEach((item)=>{
+			if( item.id == id ){
+				item.compile = !item.compile;
+			}
+		});
+		app.info();
+		app.render(app.dataArr);
 	}
 }
 
 app.dataArr = store("todo") || [];
 
 export default app;
+
+
+/*
+每一次的删除，添加，都需要储存数据(app.info())和重新渲染数据(app.render())
+
+*/

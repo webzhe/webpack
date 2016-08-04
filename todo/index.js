@@ -10,21 +10,27 @@ require('./css/base.css');
 class Main extends React.Component{
 	render(){
 		var dataArr = this.props.dataArr;
-		var content,footer;
+		var content,footer,num=0;
+		dataArr.reduce((n,item)=>{
+			num = item.compile ? num : num+1;
+		},0);
 		if( dataArr.length !== 0 ){
 			content =	<section className="main">
-			                <input className="toggle-all" type="checkbox" checked={this.props.compile} onChange={this.toggleAll} />
+			                <input className="toggle-all" type="checkbox" checked={num === 0} onChange={this.toggleAll} />
 			                <ul className="todo-list">
 				                {
 				                    dataArr.map(function(item,index){
-				                    	return <Item key={index} {...item} />
+				                    	return <Item key={index} {...item}
+				                    				removeItem={app.removeItem.bind(this,item.id)}
+				                    				toogle={app.toogle.bind(this,item.id)}
+				                    	 		/>
 				                    }.bind(this))
 				                }
 			                </ul>
 		            	</section>;
 		    footer = <footer className="footer">
 			            <span className="todo-count">
-			            	<strong>0</strong>
+			            	<strong>{num}</strong>
 			            	<span>条未选中</span>
 			            </span>
 		            </footer>
@@ -48,8 +54,12 @@ class Main extends React.Component{
 
 	downHandle(ev){
 		if( ev.keyCode === 13){
-			app.addItem(ev.target.value);
-			ev.target.value = "";
+			if( ev.target.value == "" ){
+				alert("不能为空")
+			}else{
+				app.addItem(ev.target.value);
+				ev.target.value = "";
+			}
 		}
 	};
 
@@ -70,4 +80,5 @@ function render(dataArr){
 };
 
 render(app.dataArr);
+//渲染组件
 app.render = render;
